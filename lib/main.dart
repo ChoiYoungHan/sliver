@@ -4,7 +4,10 @@ import 'package:sliver/scroll_effect.dart';
 void main() {
   runApp(const MyApp());
 }
-/*
+/* Commit 1
+ 유튜버 코딩쉐프님의 영상을 보고 학습한 코드
+ - https://www.youtube.com/watch?v=YYEtWHGW894
+
  Flutter 공식 문서
  - sliver란 스크롤 가능한 영역의 일부분
 
@@ -34,7 +37,39 @@ void main() {
  ListView나 GridView를 동시에 사용하고 싶거나, 스크롤링 이펙트를 사용하고 싶다면 CustomView위젯을 사용함
  - 곧바로 slivers를 전달하여 다양한 스크롤링 이펙트를 만들 수 있게 해준다.
 
- * */
+*/
+
+/* Commit 2
+  유튜버 코딩쉐프님의 영상을 보고 학습한 코드
+  - https://www.youtube.com/watch?v=C06hx5lRt2U
+
+  Adaptable Design System
+  - 개인적인 취향을 보다 강조하고, 개발자가 보다 더 유연하고 편하게 아름다운 앱을 만들 수 있음
+
+  Color Scheme
+  - 일련의 색상이나 색조를 조합하여 디자인에 사용
+  - 색상 구성표
+  - 주요 색상, 보조 색상, 강조 색상
+
+  Baseline color Scheme
+  - 사용자가 선택한 하나의 소스 컬러를 기반으로 생성
+  - 소스 컬러를 바탕으로 색상, 채도, 명도가 조절되어 목적에 맞게 다섯 가지의 Key Color가 만들어짐
+  - 가장 어두운 색부터 밝은 색까지 13단계로 확장되어, tonal palette가 만들어짐
+
+  Color rolls
+  - 각 역할에 맞게 UI 요소들의 컬러톤이 배정이 되며, 이에 근거하여 색상들이 자동으로 적용
+  - Light Theme과 Dart Theme에 대한 색상톤도 배정
+
+  Primary Color
+  - Floating Action Button이나 주요 버튼 배경색 또는 활성화된 버튼 등에 사용
+
+  Secondary Color
+  - 데이터를 필터링 할 때 사용되는 작은 버튼 등 앱에서 덜 부각되는 UI요소에 사용
+
+  그 외에는 m3 홈페이지에서 확인가능
+  - https://m3.material.io/styles/color/the-color-system/color-roles
+
+ */
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -42,6 +77,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          primary: Colors.deepOrange,
+          primaryContainer: Colors.blueGrey,
+          brightness: Brightness.light
+        ),
+        useMaterial3: true // M3 디자인을 사용한다는 것을 알 수 있음
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark
+      ),
+      themeMode: ThemeMode.system, // ThemeMode는 system에 따르라고 설정 (Light모드면 LightTheme, Dark모드면 DarkTheme)
       debugShowCheckedModeBanner: false, // 오른쪽 상단의 리본 띠 제거
       home: SliverTest()
     );
