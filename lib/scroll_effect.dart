@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sliver/main_navigation.dart';
 
 import 'ImageWidget.dart';
 
@@ -21,7 +22,12 @@ class ScrollEffect extends StatelessWidget {
             backgroundColor: Colors.blueGrey,
             // AppBar가 최대한 확장되었을 때의 크기를 지정
             expandedHeight: 200,
-            leading: Icon(Icons.arrow_back),
+            leading: IconButton(
+              onPressed: (){
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MainNavigation()));
+              },
+              icon: Icon(Icons.arrow_back)
+            ),
             actions: [
               Icon(Icons.settings),
               SizedBox(width: 12)

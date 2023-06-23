@@ -71,6 +71,12 @@ void main() {
 
  */
 
+/*
+  유튜버 코딩쉐프님의 영상을 보고 학습한 코드
+  - https://www.youtube.com/watch?v=ln5Mk_6lGdc
+
+  M3 Navigation Bar
+ */
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
